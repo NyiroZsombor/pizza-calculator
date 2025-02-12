@@ -99,7 +99,11 @@ root: tk.Tk = tk.Tk()
 root.title("Pizza Calculator 🍕")
 
 style = ttk.Style(root)
-style.theme_use("radiance")
+
+try:
+    style.theme_use("radiance")
+except tk.TclError as e:
+    print("Error loading themes:", e)
 
 root.minsize(640, 360)
 root.resizable(False, False)
